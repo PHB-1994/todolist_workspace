@@ -859,3 +859,8 @@ org.apache.ibatis.binding.BindingException: Invalid bound statement (not found):
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 
+2026-01-12 14:03:12.331  WARN 14824 --- [MyHikariCP:housekeeper] com.zaxxer.hikari.pool.HikariPool        : MyHikariCP - Thread starvation or clock leap detected (housekeeper delta=12m10s943ms56µs500ns).
+2026-01-12 14:21:21.937  INFO 14824 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-12 14:21:21.946  INFO 14824 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-01-12 14:21:21.964  INFO 14824 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Shutdown initiated...
+2026-01-12 14:21:21.969  INFO 14824 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Shutdown completed.

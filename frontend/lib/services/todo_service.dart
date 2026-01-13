@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:todo_app/common/constants.dart';
 import '../models/todo_model.dart';
 
 class TodoService {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://localhost:8080/api/todos',
+      baseUrl: ApiConstants.baseUrl,
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 3),
       headers: {
@@ -15,17 +16,24 @@ class TodoService {
 
   Future<List<TodoModel>> fetchTodos() async {
     try {
-      final response = await _dio.get('');
+      final response = await _dio.get('/todos');
       final List<dynamic> data = response.data;
       return data.map((json) => TodoModel.fromJson(json)).toList();
-    } on DioException catch (e) {
-      throw Exception('Failed to load todos: ${e.message}');
+    } on DioException catch(e){
+      if(e.type == DioExceptionType.connectionTimeout || e.type == DioExceptionType.receiveTimeout){
+        throw Exception(ErrorMessages.networkError);
+      } else if(e.response?.statusCode != null && e.response!.statusCode! >= 500){
+        throw Exception(ErrorMessages.serverError);
+      }
+      throw Exception(ErrorMessages.loadFailed);
+    } catch (e) {
+      throw Exception(ErrorMessages.loadFailed);
     }
   }
 
   Future<void> addTodo(String content) async {
     try {
-      await _dio.post('', data: {
+      await _dio.post('/todos', data: {
         'content': content,
         'isCompleted': false,
       });
@@ -36,7 +44,7 @@ class TodoService {
 
   Future<void> toggleTodo(int id, bool isCompleted) async {
     try {
-      await _dio.put('/$id', data: {
+      await _dio.put('/todos/$id', data: {
         'isCompleted': isCompleted,
       });
     } on DioException catch (e) {
@@ -46,7 +54,7 @@ class TodoService {
 
   Future<void> deleteTodo(int id) async {
     try {
-      await _dio.delete('/$id');
+      await _dio.delete('/todos/$id');
     } on DioException catch (e) {
       throw Exception('Failed to delete todo: ${e.message}');
     }

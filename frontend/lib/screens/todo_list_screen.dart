@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/screens/theme_setting_screen.dart';
+import 'package:todo_app/widgets/todolist/add_todo_dialog.dart';
 import 'package:todo_app/widgets/todolist/error_state.dart';
 import 'package:todo_app/widgets/todolist/statistics_bar.dart';
 import '../providers/todo_provider.dart';
@@ -23,39 +25,11 @@ class _TodoListScreenState extends State<TodoListScreen> {
   }
 
   void _showAddDialog(BuildContext context) {
-    final controller = TextEditingController();
-
     showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('New Todo'),
-        content: TextField(
-          controller: controller,
-          decoration: const InputDecoration(
-            hintText: 'What needs to be done?',
-            border: OutlineInputBorder(),
-          ),
-          autofocus: true,
-          maxLines: 3,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (controller.text.trim().isNotEmpty) {
-                Provider.of<TodoProvider>(context, listen: false)
-                    .addTodo(controller.text.trim());
-                Navigator.pop(ctx);
-              }
-            },
-            child: const Text('Add'),
-          ),
-        ],
-      ),
-    );
+        context: context,
+        builder: (context) => AddTodoDialog(onAdd: (text) {
+              Provider.of<TodoProvider>(context, listen: false).addTodo(text);
+            }));
   }
 
   @override
@@ -63,6 +37,16 @@ class _TodoListScreenState extends State<TodoListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Todo List 2026'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ThemeSettingScreen()));
+              },
+              icon: Icon(Icons.palette_outlined))
+        ],
       ),
       body: Consumer<TodoProvider>(
         builder: (context, provider, child) {
@@ -83,8 +67,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
             return const EmptyState(
                 icon: Icons.inbox_outlined,
                 mainText: 'No todos yet',
-                subText: 'Tap + to add a new todo'
-            );
+                subText: 'Tap + to add a new todo');
           }
 
           return Column(
@@ -101,26 +84,6 @@ class _TodoListScreenState extends State<TodoListScreen> {
                       completedCount: provider.completedCount,
                     )
                   ],
-                  /*
-                  children: [
-                    _buildStatCard(
-                      'Total',
-                      provider.totalCount.toString(),
-                      Colors.blue,
-                    ),
-                    _buildStatCard(
-                      'Active',
-                      provider.activeCount.toString(),
-                      Colors.orange,
-                    ),
-                    _buildStatCard(
-                      'Done',
-                      provider.completedCount.toString(),
-                      Colors.green,
-                    ),
-                  ],
-                   */
-
                 ),
               ),
               const Divider(height: 1),

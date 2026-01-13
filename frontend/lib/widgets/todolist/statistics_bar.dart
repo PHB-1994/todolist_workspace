@@ -14,9 +14,28 @@ class StatisticsBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('statistics_bar is working'),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          StatCard(
+            label: 'Total',
+            count: totalCount.toString(),
+            color: Colors.blue,
+          ),
+          StatCard(
+            label: 'Active',
+            count: activeCount.toString(),
+            color: Colors.orange,
+          ),
+          StatCard(
+            label: 'Done',
+            count: completedCount.toString(),
+            color: Colors.green,
+          ),
+        ],
       ),
     );
   }
@@ -57,5 +76,4 @@ class StatCard extends StatelessWidget {
       ],
     );
   }
-
 }

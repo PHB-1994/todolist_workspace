@@ -45,7 +45,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
                     MaterialPageRoute(
                         builder: (context) => const ThemeSettingScreen()));
               },
-              icon: Icon(Icons.palette_outlined))
+              icon: const Icon(Icons.palette_outlined))
         ],
       ),
       body: Consumer<TodoProvider>(

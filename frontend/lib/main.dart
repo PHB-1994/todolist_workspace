@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/common/app_router.dart';
 import 'package:todo_app/common/theme_provider.dart';
 import 'common/app_styles.dart';
 import 'common/constants.dart';
@@ -27,11 +28,11 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: AppConstants.appName,
             theme: themeProvider.themeData,
-            home: const TodoListScreen(),
+            routerConfig: AppRouter.router,
           );
         },
       ),

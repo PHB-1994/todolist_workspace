@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 /*
 StatelessWidget -> 변경되는 데이터가 위젯에 존재하지 않기 때문에
 한 번에 UI 와 데이터를 전체적으로 작성
@@ -60,7 +61,7 @@ class _AddTodoDialogState extends State<AddTodoDialog>{
       ),
       actions: [
         TextButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(context),
           child: const Text('Cancel'),
         ),
         FilledButton(

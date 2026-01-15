@@ -1,22 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:todo_app/common/theme_provider.dart';
 
 class ThemePurchaseDialog extends StatelessWidget {
   final ThemeProvider themeProvider;
   final AppThemeType theme;
 
-  ThemePurchaseDialog(
+  const ThemePurchaseDialog(
       {super.key, required this.themeProvider, required this.theme});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("테마 구매"),
+      title: const Text("테마 구매"),
       content: Text('${themeProvider.getThemeName(theme)}을(를) 구매하시겠습니까? '
           '\n가격 : ${themeProvider.getThemePrice(theme)}'),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(context), child: Text("취소")),
+        TextButton(onPressed: () => context.pop(context), child: const Text("취소")),
         FilledButton(
             onPressed: () async {
               Navigator.pop(context);

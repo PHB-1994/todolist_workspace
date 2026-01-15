@@ -12,13 +12,15 @@ class ThemeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themes = [
-      (AppThemeType.purple, Color(0xFF6200EE)),
-      (AppThemeType.pink, Color(0xFFE91E63)),
-      (AppThemeType.blue, Color(0xFF2196F3))
+      (AppThemeType.purple, const Color(0xFF6200EE)),
+      (AppThemeType.pink, const Color(0xFFE91E63)),
+      (AppThemeType.blue, const Color(0xFF2196F3)),
+      (AppThemeType.ocean, const Color(0xFF006494)),
+      (AppThemeType.forest, const Color(0xFF2D6A4F))
     ];
 
     return ListView(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       children: [
         const Text('테마 선택'),
         ...themes.map((data) => Padding(

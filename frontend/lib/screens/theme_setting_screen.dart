@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/widgets/theme/theme_list.dart';
 import '../common/theme_provider.dart';
@@ -21,6 +22,7 @@ class ThemeSettingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("테마 설정"),
+        leading: IconButton(onPressed: () => context.go('/'), icon: const Icon(Icons.arrow_back)),
       ),
       body: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child){

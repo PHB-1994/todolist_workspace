@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/common/app_styles.dart';
 import '../../providers/todo_provider.dart';
@@ -72,7 +73,7 @@ class TodoItem extends StatelessWidget {
         content: const Text('Are you sure you want to delete this todo?'),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(ctx),
+            onPressed: () => context.pop(ctx),
             child: const Text('Cancel'),
           ),
           FilledButton(

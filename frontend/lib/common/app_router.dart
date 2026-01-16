@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/screens/game_screen.dart';
 import 'package:todo_app/screens/login_screen.dart';
 import 'package:todo_app/screens/map_screen.dart';
 import 'package:todo_app/screens/scaffold_screen.dart';
@@ -11,8 +12,11 @@ class AppRouter {
     initialLocation: '/',
     routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) => const ScaffoldScreen()),
+        path: '/',
+        builder: (context, state) => const GameScreen()),
+    // GoRoute(
+    //   path: '/',
+    //   builder: (context, state) => const ScaffoldScreen()),
       // GoRoute(
       //     path: '/',
       //     builder: (context, state) => const MapScreen()),

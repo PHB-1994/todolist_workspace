@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/common/app_router.dart';
 import 'package:todo_app/common/theme_provider.dart';
+import 'package:todo_app/providers/game_provider.dart';
 import 'common/app_styles.dart';
 import 'common/constants.dart';
 import 'providers/todo_provider.dart';
@@ -12,6 +12,7 @@ void main() {
   runApp(const MyApp());
 }
 
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -32,6 +33,22 @@ class MyApp extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+*/
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+        create: (_) => GameProvider(),
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routerConfig: AppRouter.router,
+        )
     );
   }
 }

@@ -8,10 +8,6 @@ import 'common/constants.dart';
 import 'providers/todo_provider.dart';
 import 'screens/todo_list_screen.dart';
 
-/*
- * TODO: main() 함수 작성
- * - runApp(const MyApp()) 호출
- */
 void main() {
   runApp(const MyApp());
 }

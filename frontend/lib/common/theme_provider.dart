@@ -115,37 +115,37 @@ class ThemeProvider with ChangeNotifier {
 
           // Primary colors
           primary: primary,
-          onPrimary: Colors.white, // TODO: 적절한 대비색 선택
-          primaryContainer: primary.withOpacity(0.3), // TODO: Container 색상
-          onPrimaryContainer: Colors.black, // TODO: 대비색
+          onPrimary: Colors.white,
+          primaryContainer: primary.withOpacity(0.3),
+          onPrimaryContainer: Colors.black,
 
           // Secondary colors
           secondary: secondary,
-          onSecondary: Colors.white, // TODO
-          secondaryContainer: secondary.withOpacity(0.3), // TODO
-          onSecondaryContainer: Colors.black, // TODO
+          onSecondary: Colors.white,
+          secondaryContainer: secondary.withOpacity(0.3),
+          onSecondaryContainer: Colors.black,
 
           // Tertiary colors
-          tertiary: tertiary ?? Colors.green, // TODO
-          onTertiary: Colors.white, // TODO
-          tertiaryContainer: (tertiary ?? Colors.green).withOpacity(0.3), // TODO
-          onTertiaryContainer: Colors.black, // TODO
+          tertiary: tertiary ?? Colors.green,
+          onTertiary: Colors.white,
+          tertiaryContainer: (tertiary ?? Colors.green).withOpacity(0.3),
+          onTertiaryContainer: Colors.black,
 
           // Error colors
-          error: error ?? Colors.red, // TODO
-          onError: Colors.white, // TODO
-          errorContainer: (error ?? Colors.red).withOpacity(0.3), // TODO
-          onErrorContainer: Colors.black, // TODO
+          error: error ?? Colors.red,
+          onError: Colors.white,
+          errorContainer: (error ?? Colors.red).withOpacity(0.3),
+          onErrorContainer: Colors.black,
 
           // Surface colors
-          surface: Colors.white, // TODO: brightness에 따라 변경
-          onSurface: Colors.black, // TODO
-          surfaceContainerHighest: Colors.grey[200]!, // TODO
-          onSurfaceVariant: Colors.grey[700]!, // TODO
+          surface: Colors.white,
+          onSurface: Colors.black,
+          surfaceContainerHighest: Colors.grey[200]!,
+          onSurfaceVariant: Colors.grey[700]!,
 
           // Other
-          outline: Colors.grey, // TODO
-          shadow: Colors.black, // TODO
+          outline: Colors.grey,
+          shadow: Colors.black,
         ),
     );
   }

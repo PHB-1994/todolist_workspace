@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/common/theme_provider.dart';
@@ -29,7 +28,7 @@ class ThemePurchaseDialog extends StatelessWidget {
               final success = await themeProvider.purchaseTheme(theme);
 
               if (context.mounted) {
-                Navigator.pop(context); // 로딩 닫기
+                Navigator.pop(context);
 
                 if (success) {
                   themeProvider.changeTheme(theme);

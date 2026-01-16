@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/map/action_button.dart';
-import 'package:todo_app/widgets/map/map_widget.dart';
-import 'package:todo_app/widgets/map/transport_info_widget.dart';
 
 class LocationInfoWidget extends StatelessWidget{
   const LocationInfoWidget({super.key});
@@ -24,7 +21,9 @@ class LocationInfoWidget extends StatelessWidget{
                   icon: Icons.directions,
                   label: '길찾기',
                   color: Colors.blue,
-                  onPressed: (){ /* 길찾기 기능 구현 -> 내 위치에서 식장 위치까지 네비게이션 확인 */ }
+                  onPressed: (){
+                    /* 길찾기 기능 구현 -> 내 위치에서 식장 위치까지 네비게이션 확인 */
+                  }
               ),
               const SizedBox(width: 12),
               ActionButton(

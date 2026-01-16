@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/map/transport_info_item.dart';
 
 class TransportInfoWidget extends StatelessWidget{
-
   const TransportInfoWidget({super.key});
 
 

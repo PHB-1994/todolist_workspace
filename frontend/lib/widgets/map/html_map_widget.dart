@@ -20,16 +20,16 @@ class _HtmlMapWidgetState extends State<HtmlMapWidget> {
   void initState() {
     super.initState();
     if(kIsWeb){
-      _getMapHtml();
+      _registerViewFactory();
     }
   }
 
-  void _getMapHtml() {
+  void _registerViewFactory() {
     ui_web.platformViewRegistry.registerViewFactory(
         viewId,
         (int viewId){
           final iframe = html.IFrameElement()
-              ..src = ''
+              ..src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10637.73221297587!2d126.98506794572768!3d37.56409327836785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca28d3199c531%3A0x7a2d35df0efd2d8!2z642V7IiY6raB!5e0!3m2!1sko!2skr!4v1768445411741!5m2!1sko!2skr'
               ..style.border="none"
               ..style.width='100%'
               ..style.height='100%'
@@ -49,9 +49,13 @@ class _HtmlMapWidgetState extends State<HtmlMapWidget> {
           top: BorderSide(color: Colors.grey[300]!)
         )
       ),
-      child: kIsWeb ? HtmlElementView(viewType: viewId)
+      child: kIsWeb
+          ? HtmlElementView(viewType: viewId)
           : const Center(
-        child: Text("웹 브라우저에서만 지도를 볼 수 있다.", style: TextStyle(fontSize: 16, color: Colors.black54)),
+        child: Text(
+            "웹 브라우저에서만 지도를 볼 수 있다.",
+            style: TextStyle(fontSize: 16, color: Colors.black54)
+        ),
       )
     );
   }

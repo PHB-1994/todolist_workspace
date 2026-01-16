@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/screens/login_screen.dart';
 import 'package:todo_app/screens/map_screen.dart';
+import 'package:todo_app/screens/scaffold_screen.dart';
 import 'package:todo_app/screens/theme_setting_screen.dart';
 import 'package:todo_app/screens/todo_list_screen.dart';
 
@@ -11,7 +12,13 @@ class AppRouter {
     routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const MapScreen()),
+      builder: (context, state) => const ScaffoldScreen()),
+      // GoRoute(
+      //     path: '/',
+      //     builder: (context, state) => const MapScreen()),
+      // GoRoute(
+      //     path: '/',
+      //     builder: (context, state) => const TodoListScreen()),
     GoRoute(
         path: ('/home'),
         name: 'home',

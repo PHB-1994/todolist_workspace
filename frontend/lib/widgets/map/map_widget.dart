@@ -4,7 +4,6 @@ import 'package:webview_flutter/webview_flutter.dart';
 class MapWidget extends StatefulWidget{
   const MapWidget({super.key});
 
-
   @override
   State<MapWidget> createState() => _MapWidgetState();
 }
@@ -73,5 +72,4 @@ class _MapWidgetState extends State<MapWidget> {
       child: WebViewWidget(controller: controller),
     );
   }
-
 }

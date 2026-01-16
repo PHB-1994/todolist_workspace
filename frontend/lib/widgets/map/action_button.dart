@@ -6,8 +6,13 @@ class ActionButton extends StatelessWidget{
   final Color color;
   final VoidCallback onPressed;
 
-  const ActionButton({super.key, required this.icon, required this.label, required this.color, required this.onPressed});
-
+  const ActionButton({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onPressed
+  });
 
   @override
   Widget build(BuildContext context) {

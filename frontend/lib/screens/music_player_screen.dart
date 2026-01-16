@@ -36,6 +36,19 @@ class MusicPlayerScreen extends StatelessWidget {
                 child!,
 
                 // 컨트롤 버튼들...
+                ElevatedButton(
+                    onPressed: () {
+                      musicProvider.nextSong();
+                    },
+                    child: child
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      musicProvider.previousSong();
+                    },
+                    child: child
+                ),
               ],
             );
           },

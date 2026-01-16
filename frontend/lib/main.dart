@@ -45,6 +45,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (_) => GameProvider(),
+        /*
+        * Consumer<GameProvider>( 와
+        * builder: (context, gameProvider, child) 를
+        * 이쪽에서 작성하지 않고
+        * GameScreen 에서 작성한 의도 확인
+        * */
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.router,

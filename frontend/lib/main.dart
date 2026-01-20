@@ -3,14 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/common/app_router.dart';
 import 'package:todo_app/common/theme_provider.dart';
 import 'package:todo_app/providers/game_provider.dart';
+import 'package:todo_app/screens/game_screen.dart';
 import 'common/app_styles.dart';
 import 'common/constants.dart';
 import 'providers/todo_provider.dart';
 import 'screens/todo_list_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
 /*
 class MyApp extends StatelessWidget {
@@ -37,27 +35,45 @@ class MyApp extends StatelessWidget {
   }
 }
 */
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return
+      ChangeNotifierProvider(
         create: (_) => GameProvider(),
-        /*
-        * Consumer<GameProvider>( 와
-        * builder: (context, gameProvider, child) 를
-        * 이쪽에서 작성하지 않고
-        * GameScreen 에서 작성한 의도 확인
-        * */
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
-        )
-    );
+        child: const MaterialApp(
+          home:GameScreen(),
+        ),
+
+      );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return ChangeNotifierProvider(
+//         create: (_) => GameProvider(),
+//         /*
+//         * Consumer<GameProvider>( 와
+//         * builder: (context, gameProvider, child) 를
+//         * 이쪽에서 작성하지 않고
+//         * GameScreen 에서 작성한 의도 확인
+//         * */
+//         child: MaterialApp.router(
+//           debugShowCheckedModeBanner: false,
+//           routerConfig: AppRouter.router,
+//         )
+//     );
+//   }
+// }
 
 /*
   @override

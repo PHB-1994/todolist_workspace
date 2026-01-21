@@ -17,12 +17,19 @@ class BirdWidget extends StatelessWidget {
         width: 50 ,/* 새 모형의 크기 정사각형 */
         height: 50,
         decoration: const BoxDecoration(
-          color: Colors.yellow,
-          shape: BoxShape.circle,
+            image: DecorationImage(image: AssetImage('images/fly_bird.gif'),
+              fit: BoxFit.contain, // cover = 50 50 맞추기 contain = 비율 유지
+              filterQuality: FilterQuality.none // 픽셀아트의 경우 이 옵션을 추가하면 더 선명해짐
+            ) 
         ),
-        child: const Center(
-          child: Text('🐌', style: TextStyle(fontSize: 30),),
-        ),
+
+        // decoration: const BoxDecoration(
+        //   color: Colors.yellow,
+        //   shape: BoxShape.circle,
+        // ),
+        // child: const Center(
+        //   child: Text('🐌', style: TextStyle(fontSize: 30),),
+        // ),
       ),
     );
   }

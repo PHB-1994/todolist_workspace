@@ -7,7 +7,15 @@ class GroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         flex: 1, // 전체 화면의 1/8 차지
-        child: Container(color:Colors.brown)
+        child: Container(
+            // color:Colors.brown
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/ground.png'),
+                  fit: BoxFit.cover
+              )
+          ),
+        )
     );
   }
 }

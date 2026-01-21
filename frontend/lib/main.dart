@@ -46,8 +46,15 @@ class MyApp extends StatelessWidget {
     return
       ChangeNotifierProvider(
         create: (_) => GameProvider(),
-        child: const MaterialApp(
-          home:GameScreen(),
+        child: MaterialApp(
+          home: Center(
+            child: Container(
+              width: 400, // 모바일 가로 크기
+              height: 800, // 모바일 세로 크기
+              child: const GameScreen(),
+            ),
+          )
+          // home:GameScreen(),
         ),
 
       );
